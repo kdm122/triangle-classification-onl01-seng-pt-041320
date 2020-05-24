@@ -22,7 +22,7 @@ class Triangle
 
   end
 
-  def error 
+  def error
     begin
         raise TriangleError
       rescue TriangleError => error
