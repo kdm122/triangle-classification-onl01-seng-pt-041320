@@ -6,8 +6,8 @@ class Triangle
     sides = [side1, side2, side3]
 
     sides.each do |side|
-      side > 0 ? 
-    
+      side > 0 ?
+
 
   end
 
