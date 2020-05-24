@@ -38,6 +38,9 @@ class Triangle
   end
 
   def kind
+    if sides.any? { |side| side == 0 }
+      rais TriangleError
+    end
 
   end
 
