@@ -4,13 +4,14 @@ class Triangle
 
   def initialize(side1, side2, side3)
     sides = [side1, side2, side3]
-    sides.each do |side|
-      if side =< 0
-        begin
-        raise TriangleError
-      rescue TriangleError => error
-        puts error.message
-      end
+    valid_triangle?(side1, side2, side3) ? true : TriangleError
+#    sides.each do |side|
+#      if side =< 0
+#        begin
+#        raise TriangleError
+#      rescue TriangleError => error
+#        puts error.message
+#      end
 
     end
 
@@ -19,6 +20,13 @@ class Triangle
     @side3 = side3
 
 
+  end
+
+  def valid_triangle?(a, b, c)
+    sides = [a,b,c]
+    false if sides.any? { |side| side == 0 }
+    true if sides.all? { |side| side == a }
+    sides.inject(:+) - sides.max > sides.max ? true : false
   end
 
   def kind
