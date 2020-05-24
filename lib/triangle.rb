@@ -5,7 +5,13 @@ class Triangle
   def initialize(side1, side2, side3)
     sides = [side1, side2, side3]
     sides.each do |side|
-      side > 0 ? true : false
+      if side =< 0
+        begin
+        raise TriangleError
+      rescue TriangleError => error
+        puts error.message
+      end
+        
     end
 
     @side1 = side1
