@@ -4,7 +4,7 @@ class Triangle
 
   def initialize(side1, side2, side3)
     sides = [side1, side2, side3]
-    valid_triangle?(side1, side2, side3) ? true : raise TriangleError
+    valid_triangle?(side1, side2, side3) ? true : error
 #    sides.each do |side|
 #      if side =< 0
 #        begin
@@ -20,6 +20,14 @@ class Triangle
     @side3 = side3
 
 
+  end
+
+  def error 
+    begin
+        raise TriangleError
+      rescue TriangleError => error
+        puts error.message
+    end
   end
 
   def valid_triangle?(a, b, c)
